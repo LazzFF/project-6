@@ -1,0 +1,860 @@
+root {
+    --bg-color: #fff;
+    --text-color: #292F36;
+    --accent-color: #C76904;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    min-width: 320px;
+    font-family: "Jost";
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+main.main {
+    flex: 1 1 auto;
+}
+
+/*______________________________________Header settings______________________________________*/
+  
+  .container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 10px;
+  }
+  
+  .header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 50;
+  }
+  
+  .header__logo {
+    flex: 0 0 60px;
+  }
+  
+  .header__logo img {
+    width: 227px;
+    height: 50px;
+  }
+  
+  .header:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+  }
+  
+  .header__body {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    height: 120px;
+    align-items: center;
+  }
+  
+  .header__burger {
+    display: none;
+  }
+  
+  .header__list {
+    display: flex;
+    position: relative;
+    z-index: 2;
+    margin-top: 26px;
+  }
+  
+  .header__list li {
+    list-style: none;
+    margin: 0 0 0 20px;
+  }
+  
+  .header__link {
+    color: var(--text-color);
+    font-size: 20px;
+    font-family: "Jost";
+    text-decoration: none;
+    margin-right: 10px;
+  }
+
+  .header__link:hover {
+    color: #C76904;
+  }
+
+  
+  
+  /*классический вариант: @media (max-width:767px), я беру с запасом*/
+  @media (max-width:800px) {
+    body.lock {
+      overflow: hidden;
+    }
+  
+    .header__body {
+      height: 50px;
+    }
+  
+    .header__logo {
+      flex: 0 0 40px;
+    }
+  
+    .header__burger {
+      display: block;
+      position: relative;
+      width: 30px;
+      height: 20px;
+      z-index: 3;
+    }
+  
+    .header__burger span {
+      background-color: #292F36;
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      left: 0;
+      top: 9px;
+      transition: all 0.3s ease 0s;
+    }
+  
+    .header__burger:before,
+    .header__burger:after {
+      content: '';
+      background-color: #292F36;
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      left: 0;
+      transition: all 0.3s ease 0s;
+    }
+  
+    .header__burger:before {
+      top: 0;
+    }
+  
+    .header__burger:after {
+      bottom: 0;
+    }
+  
+    .header__burger.active:before {
+      transform: rotate(45deg);
+      top: 9px;
+    }
+  
+    .header__burger.active:after {
+      transform: rotate(-45deg);
+      bottom: 9px;
+    }
+  
+    .header__burger.active span {
+      transform: scale(0);
+    }
+  
+    .header__menu {
+      position: fixed;
+      top: -100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+  /*для прокрутки меню, когда оно не помещается в экран*/
+      overflow: auto;   
+      background-color: #C76904;
+      padding: 70px 10px 20px 10px;
+      transition: all 0.3s ease 0s;
+    }
+  
+    .header__menu.active {
+      top: 0;
+    }
+  
+    .header__list {
+      display: block;
+    }
+  
+    .header__list li {
+      margin: 0 0 20px 0;
+    }
+  
+    .header__link {
+      font-size: 24px;
+    }
+  }
+  
+  .content {
+    padding: 100px 0 0 0;
+  }
+  
+  @media (max-width:800px) {
+    .content {
+      padding: 70px 0 0 0;
+    }
+  }
+
+/*____________________________________________________________________________*/
+
+/*______________________________________Main page settings______________________________________*/
+
+.main {
+    padding-top: 250px;
+}
+
+.main-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main-title {
+    position: absolute;
+    font-family: "DM Serif Display";
+    font-size: 65px;
+    font-weight: 400;
+    margin-top: 70px;
+    margin-left: 140px;
+    color: #fff;
+    line-height: 125%;
+}
+
+.bottom-title {
+    position: absolute;
+    font-family: "Inter";
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 150%;
+    color: #fff;
+    margin-left: 140px;
+    margin-top: 230px;
+}
+
+.button {
+    position: absolute;
+    border-style: hidden;
+    width: 227px; 
+    height: 75px;
+    background-color: #CDA274;
+    color: #fff;
+    font-family: "Inter";
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 10%;
+    margin-left: 140px;
+    margin-top: 338px;
+}
+
+.row {
+    margin-top: 95px;
+}
+
+.card {
+    border: none;
+}
+
+.card-body {
+    text-align: center;
+}
+
+.card-footer {
+    text-align: center;
+    border: none;
+}
+
+.window {
+    margin-top: 154px;
+}
+
+.window-title {
+    position: absolute;
+    font-family: "DM Serif Display";
+    font-size: 55px;
+    font-weight: 400;
+    margin-top: 140px;
+    margin-left: 140px;
+    color: #fff;
+    line-height: 125%;
+}
+
+.bottom-window-title {
+    position: absolute;
+    font-family: "Jost";
+    font-size: 22px;
+    font-weight: 500;
+    margin-top: 300px;
+    margin-left: 140px;
+    color: #fff;
+    line-height: 150%;
+}
+
+.window-call {
+    position: absolute;
+    margin-top: 420px;
+    margin-left: 140px;
+}
+
+.window-button {
+    position: absolute;
+    margin-top: 220px;
+}
+
+.frame-window {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.feedback-background {
+    margin-top: 194px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.feedback-title {
+    position: absolute;
+    font-family: "DM Serif Display";
+    font-size: 50px;
+    font-weight: 400;
+    margin-top: 100px;
+    margin-left: 450px;
+    text-align: center;
+    color: #fff;
+    line-height: 125%;
+}
+
+.feedback-cards {
+    height: 339px;
+    position: absolute;
+    left: 280px;
+    margin-top: 230px;
+}
+
+.feedback-card-text {
+    font-family: "Jost";
+    font-size: 20px;
+    font-weight: 400;
+    color: #4D5053;
+    line-height: 150%;
+    margin-left: 20px;
+    margin-top: 25px;
+}
+
+.card {
+    border-radius: 10%;
+}
+
+.card-img-top {
+    width: 80%;
+    margin-top: 53px;
+    margin-left: 30px;
+}
+
+.commersion {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 188px;
+}
+
+.text-block {
+    margin-top: 202px;
+    text-align: center;
+}
+
+.content-title {
+    font-family: "DM Serif Display";
+    font-size: 60px;
+    font-weight: 400;
+    color: var(--text-color);
+    line-height: 125%;
+}
+
+.content-bottom {
+    font-family: "Jost";
+    font-size: 28px;
+    font-weight: 400;
+    color: #4D5053;
+    line-height: 150%;
+}
+
+.content-card-body {
+    margin-left: 30px;
+    margin-top: 14px;
+}
+
+.content-card-title {
+    font-family: "DM Serif Display";
+    font-size: 25px;
+    font-weight: 400;
+    color: var(--text-color);
+    line-height: 125%;
+}
+
+.content-card-text {
+  font-family: "Jost";
+  font-size: 22px;
+  font-weight: 400;
+  color: #4D5053;
+  line-height: 150%;
+}
+
+.content-cards {
+    width: 100%;
+    margin-left: 70px;
+}
+
+.counter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+.contact-us-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-title {
+  position: absolute;
+  font-family: "DM Serif Display";
+  font-size: 50px;
+  font-weight: 400;
+  color: #fff;
+  line-height: 125%;
+  margin-top: 40px;
+  margin-left: 510px;
+  text-align: center;
+}
+
+.contact-text {
+  position: absolute;
+  font-family: "Jost";
+  font-size: 22px;
+  font-weight: 500;
+  color: #fff;
+  line-height: 150%;
+  margin-top: 120px;
+  margin-left: 560px;
+  text-align: center;
+}
+
+.contact-button {
+  position: absolute;
+    border-style: hidden;
+    width: 237px;
+    height: 75px;
+    background-color: #CDA274;
+    color: #fff;
+    font-family: "Jost";
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 15%;
+    margin-left: 650px;
+    margin-top: 180px;
+}
+
+/*____________________________________________________________________________*/
+
+/*______________________________________Footer settings______________________________________*/
+
+
+.footer {
+  margin-top: 41px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer-title {
+  font-family: "DM Serif Display";
+  font-size: 25px;
+  font-weight: 400;
+  color: var(--text-color);
+  line-height: 125%;
+}
+
+.text-footer {
+  font-family: "Jost";
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 150%;
+  color: #4D5053;
+  text-decoration: none;
+}
+
+.footer-text {
+  width: 100%;
+  font-family: "Jost";
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 150%;
+  color: #4D5053;
+  text-decoration: none;
+}
+
+.footer-logo {
+  margin-left: -12px;
+}
+
+.bottom-text-footer {
+  font-family: "Jost";
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 150%;
+  color: #4D5053;
+  text-decoration: none;
+  margin-left: 280px;
+}
+
+.footer-icons {
+  margin-left: -15px;
+}
+
+/*____________________________________________________________________________*/
+
+@media (max-width:1640px) {
+
+  .main-title {
+    margin-left: 350px;
+  }
+
+  .bottom-title {
+    margin-left: 350px;
+  }
+
+  .button {
+    margin-left: 350px;
+  }
+
+  .window-title {
+    margin-left: 350px;
+  }
+
+  .bottom-window-title {
+    margin-left: 350px;
+  }
+
+  .window-call {
+    margin-left: 350px;
+  }
+
+  .feedback-title {
+    margin-left: 550px;
+  }
+
+  .feedback-cards {
+    left: 350px;
+  }
+  
+}
+
+
+
+@media (max-width:1024px) {
+
+  .header__menu {
+    margin-right: 20px;
+  }
+
+  .main-title {
+    margin-left: 80px;
+  }
+
+  .bottom-title {
+    margin-left: 80px;
+  }
+
+  .button {
+    margin-left: 80px;
+  }
+
+  .window-title {
+    margin-left: 80px;
+    margin-top: 80px;
+  }
+
+  .bottom-window-title {
+    margin-left: 80px;
+    margin-top: 220px;
+  }
+
+  .window-call {
+    margin-left: 80px;
+    margin-top: 340px;
+  }
+
+  .window-button {
+    margin-top: 140px;
+  }
+
+  .feedback-title {
+    margin-left: 260px;
+  }
+
+  .feedback-cards {
+    left: 50px;
+  }
+
+  .content-cards {
+    margin-left: 30px;
+  }
+
+  .contact-title {
+    margin-left: 250px;
+  }
+
+  .contact-text {
+    margin-left: 300px;
+  }
+
+  .contact-button {
+    height: 50px;
+    margin-left: 400px;
+    margin-top: 160px;
+  }
+
+}
+
+@media (max-width:768px) {
+
+  .header {
+    margin-top: 40px;
+  }
+
+  .header__burger {
+    margin-right: 40px;
+  }
+
+  .main-page {
+    margin-top: -100px;
+  }
+
+  .main-title {
+    font-size: 40px;
+  }
+
+  .bottom-title {
+    margin-top: 180px;
+    font-size: 18px;
+  }
+
+  .button {
+    width: 200px;
+    height: 50px;
+    margin-top: 280px;
+  }
+
+  .window-title {
+    font-size: 40px;
+    margin-top: 50px;
+  }
+
+  .bottom-window-title {
+    font-size: 18px;
+    margin-top: 170px;
+  }
+
+  .window-call {
+    width: 30%;
+    margin-top: 260px;
+  }
+
+  .window-button {
+    margin-top: 80px;
+  }
+
+  .feedback-title {
+    font-size: 40px;
+    margin-left: 170px;
+    margin-top: 50px;
+  }
+
+  .feedback-cards {
+    margin-top: 150px;
+    height: 100px;
+    left: 20px;
+    right: 20px;
+  }
+
+  .feedback-card-text {
+    font-size: 15px;
+  }
+
+  .contact-title {
+    font-size: 40px;
+    margin-left: 160px;
+    margin-top: 20px;
+  }
+
+  .contact-text {
+    font-size: 18px;
+    margin-top: 80px;
+    margin-left: 190px;
+  }
+
+  .contact-button {
+    margin-top: 120px;
+    margin-left: 250px;
+  }
+
+  .footer {
+    margin-left: 250px;
+  }
+
+  .my-4 {
+    display: block;
+  }
+
+  .bottom-text-footer {
+    margin-left: -50px;
+  }
+
+}
+
+@media (max-width:375px) {
+
+  .main-img {
+    margin-left: 50px;
+  }
+
+  .header__burger {
+    margin-right: 30px;
+  }
+
+  .main-title {
+    font-size: 25px;
+    margin-left: 80px;
+  }
+
+  .bottom-title {
+    font-size: 12px;
+    margin-left: 80px;
+    margin-top: 140px;
+  }
+
+  .button {
+    width: 150px;
+    height: 55px;
+    margin-top: 180px;
+  }
+
+  .row {
+    margin-left: 50px;
+    margin-top: 40px;
+  }
+
+  .frame-window {
+    margin-left: 50px;
+  }
+
+  .window-title {
+    font-size: 25px;
+    margin-left: 80px;
+    margin-top: 30px;
+  }
+
+  .bottom-window-title {
+    font-size: 12px;
+    margin-left: 80px;
+    margin-top: 100px;
+  }
+
+  .window-call {
+    display: none;
+  }
+
+  .window-button {
+    margin-top: -20px;
+  }
+
+  .feedback-background {
+    margin-top: 100px;
+    margin-left: 55px;
+    height: 1000px;
+  }
+
+  .feedback-title {
+    font-size: 25px;
+    margin-left: 110px;
+  }
+
+  .feedback-cards {
+    margin-top: 140px;
+    margin-left: 90px;
+  }
+
+  .commersion {
+    margin-top: 150px;
+    margin-left: 55px;
+  }
+
+  .text-block {
+    margin-top: 100px;
+  }
+
+  .content-title {
+    font-size: 40px;
+    margin-left: 100px;
+  }
+
+  .content-bottom {
+    font-size: 20px;
+    margin-left: 100px;
+  }
+
+  .content-cards {
+    margin-left: 70px;
+  }
+
+  .counter {
+    display: none;
+  }
+
+  .contact-us-img {
+    max-width: 140%;
+  }
+
+  .contact-title {
+    font-size: 20px;
+  }
+
+  .contact-text {
+    font-size: 10px;
+    margin-top: 50px;
+    margin-left: 170px;
+  }
+
+  .contact-button {
+    margin-top: 70px;
+    width: 50%;
+    margin-left: 175px;
+  }
+
+  .footer {
+    margin-left: 100px;
+  }
+
+  .bottom-text-footer {
+    margin-left: 0px;
+  }
+
+
+
+
+
+}
+
+
